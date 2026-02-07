@@ -41,7 +41,7 @@ function Tag({ children }: { children: React.ReactNode }) {
 
 export default function Programs() {
   return (
-    <section id="programs" className="py-16 sm:py-20 md:py-36">
+    <section id="programs" className="py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
         {/* Header */}
         <div className="grid gap-6 md:grid-cols-2 md:gap-20">

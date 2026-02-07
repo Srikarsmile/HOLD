@@ -33,7 +33,7 @@ const testimonials = [
 
 export default function Impact() {
   return (
-    <section id="impact" className="py-16 sm:py-20 md:py-36">
+    <section id="impact" className="py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
         {/* Header */}
         <div className="mb-10 text-center sm:mb-12 md:mb-16">

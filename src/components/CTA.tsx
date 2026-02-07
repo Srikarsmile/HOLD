@@ -4,7 +4,7 @@ import { Reveal } from "@/lib/motion";
 
 export default function CTA() {
   return (
-    <section className="pb-16 sm:pb-20 md:pb-36">
+    <section className="pb-12 sm:pb-16 md:pb-20">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
         <Reveal>
           <div className="relative overflow-hidden rounded-2xl border border-border bg-bg-card px-5 py-12 text-center sm:rounded-3xl sm:px-8 sm:py-16 md:px-16 md:py-20">

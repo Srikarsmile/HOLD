@@ -93,7 +93,7 @@ function ContactCard({
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-16 sm:py-20 md:py-36">
+    <section id="contact" className="py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
         <div className="grid gap-8 md:grid-cols-2 md:gap-20">
           {/* Left */}

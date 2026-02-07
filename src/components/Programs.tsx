@@ -10,24 +10,24 @@ const programs = [
     desc: "Culturally safe spaces where young people explore identity, heritage, and creative expression. We celebrate diversity and challenge inequality through education that centres lived experience.",
     tags: ["Identity", "Heritage", "Creative Expression"],
     image:
-      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop",
-    imageAlt: "Young people engaged in a creative cultural education workshop",
+      "https://images.unsplash.com/photo-1460518451285-97b6aa326961?w=600&h=400&fit=crop",
+    imageAlt: "Young people expressing themselves through creative arts and culture",
   },
   {
     title: "Youth Development",
     desc: "Skills-building workshops and mentoring that equip young people with confidence, resilience, and the tools to shape their futures. We nurture local talent and celebrate potential.",
     tags: ["Workshops", "Mentoring", "Skills"],
     image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
-    imageAlt: "Young people collaborating in a mentoring workshop session",
+      "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&h=400&fit=crop",
+    imageAlt: "Young people building skills and confidence together",
   },
   {
     title: "Community Support",
     desc: "Strengthening grassroots networks and providing support for families affected by inequality and exclusion. Real, grounded work that meets people where they are.",
     tags: ["Grassroots", "Families", "Inclusion"],
     image:
-      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop",
-    imageAlt: "Community members supporting each other in a group setting",
+      "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop",
+    imageAlt: "Families and community members coming together for support",
   },
 ];
 
@@ -83,7 +83,7 @@ export default function Programs() {
               {/* Image */}
               <div className="relative aspect-[16/10] sm:aspect-[2/1] md:aspect-auto md:h-full md:min-h-[350px]">
                 <Image
-                  src="https://images.unsplash.com/photo-1609234656388-0ff363383899?w=800&h=600&fit=crop"
+                  src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop"
                   alt="Families and young people participating in the Roots and Wings programme"
                   fill
                   className="object-cover"

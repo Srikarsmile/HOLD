@@ -138,9 +138,9 @@ export default function Gallery() {
                 {/* Video Section */}
                 <Reveal>
                     <div className="mt-10 sm:mt-14 md:mt-16">
-                        <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-bg-card">
+                        <div className="relative aspect-video rounded-2xl border border-border bg-bg-card">
                             <video
-                                className="h-full w-full object-contain"
+                                className="relative z-10 h-full w-full rounded-2xl object-contain"
                                 controls
                                 playsInline
                                 preload="auto"

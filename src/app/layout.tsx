@@ -2,6 +2,17 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/lib/theme";
 import "./globals.css";
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover" as const,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf9fc" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0a10" },
+  ],
+};
+
 export const metadata: Metadata = {
   title: "Hold It Down CIC | Amplifying Unheard Voices",
   description:

@@ -81,7 +81,7 @@ export default function Programs() {
           <TiltCard className="group relative col-span-full overflow-hidden rounded-2xl border border-accent/10 bg-gradient-to-br from-bg-card to-accent/[0.03]">
             <div className="grid items-center md:grid-cols-2">
               {/* Image */}
-              <div className="relative aspect-[16/10] md:aspect-auto md:h-full">
+              <div className="relative aspect-[16/10] sm:aspect-[2/1] md:aspect-auto md:h-full md:min-h-[350px]">
                 <Image
                   src="https://images.unsplash.com/photo-1609234656388-0ff363383899?w=800&h=600&fit=crop"
                   alt="Families and young people participating in the Roots and Wings programme"

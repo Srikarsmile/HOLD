@@ -47,9 +47,9 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-[1100px]">
-        <div className="grid items-center gap-10 md:grid-cols-[1fr_auto] md:gap-16">
+        <div className="grid items-center gap-8 sm:grid-cols-[1fr_auto] sm:gap-10 md:gap-16">
           {/* Text Column */}
-          <div className="text-center md:text-left">
+          <div className="text-center sm:text-left">
             <Reveal>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-bg-card px-3.5 py-1.5 text-[0.65rem] font-medium uppercase tracking-wider text-text-secondary sm:mb-10 sm:gap-2.5 sm:px-5 sm:py-2 sm:text-xs">
                 <span className="badge-dot h-1.5 w-1.5 rounded-full bg-accent sm:h-2 sm:w-2" />
@@ -83,7 +83,7 @@ export default function Hero() {
             </div>
 
             <Reveal delay={0.3}>
-              <p className="mx-auto mb-8 max-w-[540px] text-[clamp(0.9rem,2.5vw,1.15rem)] leading-relaxed text-text-secondary sm:mb-12 md:mx-0">
+              <p className="mx-auto mb-8 max-w-[540px] text-[clamp(0.9rem,2.5vw,1.15rem)] leading-relaxed text-text-secondary sm:mx-0 sm:mb-12">
                 A bold movement rooted in lived experience and driven by the urgency
                 for change. We centre truth, nurture belonging, and cultivate a
                 culture where connection, care, and courage are lived actions.
@@ -91,7 +91,7 @@ export default function Hero() {
             </Reveal>
 
             <Reveal delay={0.5}>
-              <div className="flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4 md:justify-start">
+              <div className="flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:justify-start sm:gap-4">
                 <a
                   href="#programs"
                   onClick={(e) => {
@@ -129,14 +129,14 @@ export default function Hero() {
 
           {/* Hero Image */}
           <Reveal delay={0.4}>
-            <div className="relative mx-auto hidden w-[320px] md:block lg:w-[380px]">
+            <div className="relative mx-auto hidden w-[240px] sm:block md:w-[320px] lg:w-[380px]">
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-border">
                 <Image
                   src="https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?w=760&h=1000&fit=crop&crop=faces"
                   alt="Diverse young people together in an urban community setting"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 0px, 380px"
+                  sizes="(max-width: 640px) 0px, (max-width: 768px) 240px, 380px"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-bg/60 via-transparent to-transparent" />

@@ -10,7 +10,7 @@ export default function About() {
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-20">
           {/* Left - Image */}
           <Reveal>
-            <div className="relative">
+            <div className="relative overflow-visible pr-4 pb-4 sm:pr-5 sm:pb-5">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
                 <Image
                   src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=600&fit=crop"
@@ -22,7 +22,7 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-bg/40 via-transparent to-transparent" />
               </div>
               {/* Floating badge */}
-              <div className="absolute -right-3 -bottom-3 rounded-xl border border-border bg-bg-card px-4 py-3 shadow-lg sm:-right-4 sm:-bottom-4 sm:px-5 sm:py-4">
+              <div className="absolute right-0 bottom-0 rounded-xl border border-border bg-bg-card px-4 py-3 shadow-lg sm:px-5 sm:py-4">
                 <p className="font-[family-name:var(--font-heading)] text-lg font-bold text-accent sm:text-xl">
                   Est. 2022
                 </p>

@@ -106,7 +106,7 @@ export default function Programs() {
           {programs.map((prog) => (
             <TiltCard
               key={prog.title}
-              className="group overflow-hidden rounded-2xl border border-border bg-bg-card p-6 transition-all duration-500 sm:p-8 md:p-10 hover:border-border-hover"
+              className="card-shadow group overflow-hidden rounded-2xl border border-border bg-bg-card p-6 transition-all duration-500 sm:p-8 md:p-10 hover:border-border-hover"
             >
               <h3 className="mb-4 font-[family-name:var(--font-heading)] text-xl font-semibold">
                 {prog.title}

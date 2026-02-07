@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "@/lib/theme";
 
 const links = [
   { label: "About", href: "#about" },
@@ -10,6 +11,67 @@ const links = [
   { label: "Impact", href: "#impact" },
   { label: "Contact", href: "#contact" },
 ];
+
+function ThemeToggle() {
+  const { theme, toggle } = useTheme();
+  const isDark = theme === "dark";
+
+  return (
+    <button
+      onClick={toggle}
+      aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
+      className="relative flex h-9 w-9 items-center justify-center rounded-full border border-border bg-bg-card text-text-secondary transition-all hover:border-border-hover hover:text-accent"
+    >
+      <AnimatePresence mode="wait" initial={false}>
+        {isDark ? (
+          <motion.svg
+            key="sun"
+            initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+            animate={{ rotate: 0, opacity: 1, scale: 1 }}
+            exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.2 }}
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </motion.svg>
+        ) : (
+          <motion.svg
+            key="moon"
+            initial={{ rotate: 90, opacity: 0, scale: 0.5 }}
+            animate={{ rotate: 0, opacity: 1, scale: 1 }}
+            exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
+            transition={{ duration: 0.2 }}
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </motion.svg>
+        )}
+      </AnimatePresence>
+    </button>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -59,7 +121,7 @@ export default function Navbar() {
           <span className="text-accent">DOWN</span>
         </a>
 
-        {/* Desktop Links */}
+        {/* Desktop Links + Theme Toggle */}
         <div className="hidden items-center gap-9 md:flex">
           {links.map((link) => (
             <a
@@ -72,30 +134,34 @@ export default function Navbar() {
               <span className="absolute -bottom-0.5 left-0 h-[1.5px] w-0 bg-accent transition-all duration-400 group-hover:w-full" />
             </a>
           ))}
+          <ThemeToggle />
         </div>
 
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="flex flex-col items-center justify-center gap-[5px] p-3 -mr-2 min-h-[44px] min-w-[44px] md:hidden"
-          aria-label="Toggle navigation"
-        >
-          <span
-            className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${
-              open ? "translate-y-[7px] rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${
-              open ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${
-              open ? "-translate-y-[7px] -rotate-45" : ""
-            }`}
-          />
-        </button>
+        {/* Mobile: Theme Toggle + Hamburger */}
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            onClick={() => setOpen(!open)}
+            className="flex flex-col items-center justify-center gap-[5px] p-3 -mr-2 min-h-[44px] min-w-[44px]"
+            aria-label="Toggle navigation"
+          >
+            <span
+              className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${
+                open ? "translate-y-[7px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${
+                open ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${
+                open ? "-translate-y-[7px] -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -119,21 +185,21 @@ export default function Navbar() {
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="fixed top-0 right-0 z-[999] h-screen w-[min(280px,85vw)] border-l border-border bg-bg-elevated md:hidden"
             >
-            <div className="flex flex-col gap-2 px-6 pt-24">
-              {links.map((link, i) => (
-                <motion.a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => handleClick(e, link.href)}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + i * 0.05 }}
-                  className="py-3 text-lg font-medium text-text-secondary transition-colors hover:text-text-primary"
-                >
-                  {link.label}
-                </motion.a>
-              ))}
-            </div>
+              <div className="flex flex-col gap-2 px-6 pt-24">
+                {links.map((link, i) => (
+                  <motion.a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => handleClick(e, link.href)}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + i * 0.05 }}
+                    className="py-3 text-lg font-medium text-text-secondary transition-colors hover:text-text-primary"
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+              </div>
             </motion.div>
           </>
         )}

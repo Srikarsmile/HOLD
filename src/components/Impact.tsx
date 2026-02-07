@@ -55,7 +55,7 @@ export default function Impact() {
           {testimonials.map((t, i) => (
             <TiltCard
               key={i}
-              className="flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-card p-6 transition-all duration-500 sm:p-8 md:p-10 hover:border-border-hover"
+              className="card-shadow flex flex-col overflow-hidden rounded-2xl border border-border bg-bg-card p-6 transition-all duration-500 sm:p-8 md:p-10 hover:border-border-hover"
             >
               <span className="text-gradient mb-3 font-[family-name:var(--font-heading)] text-4xl leading-none sm:mb-4 sm:text-5xl md:text-6xl">
                 &ldquo;

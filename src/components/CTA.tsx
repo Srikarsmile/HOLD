@@ -31,7 +31,7 @@ export default function CTA() {
                     .querySelector("#contact")
                     ?.scrollIntoView({ behavior: "smooth", block: "start" });
                 }}
-                className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-accent-warm px-7 py-3.5 text-sm font-semibold text-bg transition-all sm:px-10 sm:py-4 sm:text-base hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(200,162,248,0.25)]"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-accent-warm px-7 py-3.5 text-sm font-semibold text-white transition-all sm:px-10 sm:py-4 sm:text-base hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <span>Join Us</span>
                 <svg

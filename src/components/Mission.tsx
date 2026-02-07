@@ -87,7 +87,7 @@ export default function Mission() {
           {values.map((v) => (
             <TiltCard
               key={v.num}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-bg-card p-6 transition-all duration-500 sm:p-8 hover:border-border-hover hover:bg-bg-card-hover"
+              className="card-shadow group relative overflow-hidden rounded-2xl border border-border bg-bg-card p-6 transition-all duration-500 sm:p-8 hover:border-border-hover hover:bg-bg-card-hover"
             >
               {/* Top accent line */}
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-accent-warm opacity-0 transition-opacity duration-400 group-hover:opacity-100" />

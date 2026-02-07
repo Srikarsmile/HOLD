@@ -185,7 +185,20 @@ export default function Navbar() {
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="fixed top-0 right-0 z-[999] h-screen w-[min(280px,85vw)] border-l border-border bg-bg-elevated md:hidden"
             >
-              <div className="flex flex-col gap-2 px-6 pt-24">
+              {/* Close Button */}
+              <div className="flex justify-end px-4 pt-5">
+                <button
+                  onClick={() => setOpen(false)}
+                  aria-label="Close menu"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-bg-card text-text-secondary transition-colors hover:text-text-primary"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
+              </div>
+              <div className="flex flex-col gap-2 px-6 pt-4">
                 {links.map((link, i) => (
                   <motion.a
                     key={link.href}

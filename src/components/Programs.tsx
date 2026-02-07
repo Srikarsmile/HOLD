@@ -9,33 +9,29 @@ const programmes = [
     title: "Echoes of Us",
     desc: "A powerful journey for fathers, sons, and mentors. Explores masculinity, emotions, and the bonds that unite generations through workshops, open conversations, and creative activities.",
     tags: ["Fathers & Sons", "Mentorship", "Masculinity"],
-    image:
-      "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600&h=400&fit=crop",
-    imageAlt: "Fathers and sons connecting through mentorship activities",
+    image: "/media/roots/roots-5.jpeg",
+    imageAlt: "Fathers and mentors at outdoor discussion session",
   },
   {
     title: "Voices Together",
     desc: "Using storytelling, creativity, and performance to give young people a platform to be heard. Develops leadership, communication, and digital media skills while celebrating identity.",
     tags: ["Storytelling", "Leadership", "Digital Media"],
-    image:
-      "https://images.unsplash.com/photo-1460518451285-97b6aa326961?w=600&h=400&fit=crop",
-    imageAlt: "Young people expressing themselves through creative storytelling",
+    image: "/media/roots/roots-15.jpeg",
+    imageAlt: "Community members gathering for storytelling and performances",
   },
   {
     title: "Talk Di TingZ",
     desc: "Our youth-led podcast offering a safe space for young people to discuss real issues — identity, relationships, and emotional wellbeing. Building a culture of openness where young people lead the conversation.",
     tags: ["Youth Podcast", "Safe Space", "Identity"],
-    image:
-      "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&h=400&fit=crop",
-    imageAlt: "Young people recording a podcast discussion",
+    image: "/media/talkdi/talkdi-1.jpeg",
+    imageAlt: "Talk Di TingZ youth podcast team",
   },
   {
     title: "Our Voices, Our Stage",
     desc: "A platform for advocacy, performance, and youth leadership. From spoken word to performance showcases, equipping young people with the tools to inspire audiences and influence change.",
     tags: ["Spoken Word", "Performance", "Advocacy"],
-    image:
-      "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop",
-    imageAlt: "Young people performing on stage with confidence",
+    image: "/media/roots/roots-10.jpeg",
+    imageAlt: "Young people performing and celebrating at community event",
   },
 ];
 
@@ -100,8 +96,8 @@ export default function Programs() {
               {/* Image */}
               <div className="relative aspect-[16/10] sm:aspect-[2/1] md:aspect-auto md:h-full md:min-h-[350px]">
                 <Image
-                  src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&h=600&fit=crop"
-                  alt="Families and young people at the Roots and Wings programme"
+                  src="/media/roots/roots-2.jpeg"
+                  alt="Families and children at the Roots & Wings Family Fun Day"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,8 +41,28 @@ function ThemeToggle() {
 }
 
 export default function EventsPage() {
+  return (
+    <Suspense>
+      <EventsPageContent />
+    </Suspense>
+  );
+}
+
+function EventsPageContent() {
+  const searchParams = useSearchParams();
   const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
   const [lightboxImage, setLightboxImage] = useState<number | null>(null);
+
+  useEffect(() => {
+    const eventSlug = searchParams.get("event");
+    if (eventSlug && events.some((e) => e.slug === eventSlug)) {
+      setSelectedEvent(eventSlug);
+      setTimeout(() => {
+        const el = document.getElementById(`event-${eventSlug}`);
+        el?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
+    }
+  }, [searchParams]);
 
   const activeEvent = events.find((e) => e.slug === selectedEvent);
 
@@ -110,7 +131,7 @@ export default function EventsPage() {
             variants={staggerContainer}
           >
             {events.map((event, i) => (
-              <motion.div key={event.slug} variants={fadeUp}>
+              <motion.div key={event.slug} variants={fadeUp} id={`event-${event.slug}`}>
                 <div
                   className="group cursor-pointer overflow-hidden rounded-2xl border border-border bg-bg-card transition-all duration-300 hover:border-accent/30 hover:shadow-lg"
                   onClick={() =>

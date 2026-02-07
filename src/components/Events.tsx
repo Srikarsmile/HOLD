@@ -23,9 +23,8 @@ const events = [
       "Strengthened family bonds & community cohesion",
       "Increased youth voice & leadership",
     ],
-    image:
-      "https://images.unsplash.com/photo-1529070538774-1f4e532a4600?w=800&h=500&fit=crop",
-    imageAlt: "Families enjoying community fun day activities",
+    image: "/media/image-1.jpeg",
+    imageAlt: "Couple at the Roots & Wings Family Fun Day photo booth",
     badge: "300+ Attendees",
   },
   {
@@ -40,9 +39,8 @@ const events = [
       "Guest speakers from the community",
     ],
     impact: [],
-    image:
-      "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&h=500&fit=crop",
-    imageAlt: "Young people in a podcast recording session",
+    image: "/media/ Talk Di/WhatsApp Image 2026-02-07 at 10.35.13 (1).jpeg",
+    imageAlt: "Talk Di TingZ team together in matching blue hoodies",
     badge: "Youth-Led",
   },
 ];

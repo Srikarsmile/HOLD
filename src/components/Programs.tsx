@@ -16,8 +16,8 @@ const programmes = [
     title: "Voices Together",
     desc: "Using storytelling, creativity, and performance to give young people a platform to be heard. Develops leadership, communication, and digital media skills while celebrating identity.",
     tags: ["Storytelling", "Leadership", "Digital Media"],
-    image: "/media/roots/roots-15.jpeg",
-    imageAlt: "Community members gathering for storytelling and performances",
+    image: "/media/image-6.jpeg",
+    imageAlt: "Young person enjoying the Roots & Wings Family Fun Day",
   },
   {
     title: "Talk Di TingZ",
@@ -30,8 +30,8 @@ const programmes = [
     title: "Our Voices, Our Stage",
     desc: "A platform for advocacy, performance, and youth leadership. From spoken word to performance showcases, equipping young people with the tools to inspire audiences and influence change.",
     tags: ["Spoken Word", "Performance", "Advocacy"],
-    image: "/media/roots/roots-24.jpeg",
-    imageAlt: "Children playing and being active at community event",
+    image: "/media/roots/roots-15.jpeg",
+    imageAlt: "Community gathering at Alchemy venue in Croydon",
   },
 ];
 

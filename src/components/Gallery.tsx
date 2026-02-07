@@ -7,8 +7,8 @@ import { Reveal, staggerContainer, fadeUp } from "@/lib/motion";
 
 const galleryImages = [
     {
-        src: "/media/roots/roots-14.jpeg",
-        alt: "Hold It Down CIC branded merchandise",
+        src: "/media/image-1.jpeg",
+        alt: "Hold It Down CIC founders at Roots & Wings Family Fun Day",
         caption: "Our Team",
     },
     {
@@ -19,7 +19,7 @@ const galleryImages = [
     {
         src: "/media/roots/roots-13.jpeg",
         alt: "Two young people at the basketball court",
-        caption: "Celebrating Achievement",
+        caption: "Youth Sports",
     },
     {
         src: "/media/roots/roots-23.jpeg",

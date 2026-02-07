@@ -45,7 +45,7 @@ export default function Events() {
           {previewEvents.map((event, i) => (
             <motion.div key={event.title} variants={fadeUp}>
               <Link href={`/events?event=${event.slug}`} className="block">
-                <div className="group overflow-hidden rounded-2xl border border-border bg-bg-card transition-all duration-300 hover:border-accent/30 hover:shadow-lg cursor-pointer">
+                <div className="group overflow-hidden rounded-2xl border border-border bg-bg-card transition-[border-color,box-shadow] duration-300 hover:border-accent/30 hover:shadow-lg cursor-pointer">
                 <div className="grid md:grid-cols-2">
                   {/* Image */}
                   <div className={`relative aspect-[16/10] md:aspect-auto md:min-h-[400px] ${i % 2 === 1 ? "md:order-2" : ""}`}>

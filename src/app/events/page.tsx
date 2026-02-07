@@ -57,10 +57,11 @@ function EventsPageContent() {
     const eventSlug = searchParams.get("event");
     if (eventSlug && events.some((e) => e.slug === eventSlug)) {
       setSelectedEvent(eventSlug);
+      // Wait for page render + gallery expand animation before scrolling
       setTimeout(() => {
         const el = document.getElementById(`event-${eventSlug}`);
         el?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 300);
+      }, 600);
     }
   }, [searchParams]);
 
@@ -69,7 +70,7 @@ function EventsPageContent() {
   return (
     <div className="min-h-screen">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-[1000] border-b border-border bg-bg/85 py-3 backdrop-blur-xl">
+      <nav className="fixed top-0 left-0 right-0 z-[1000] border-b border-border bg-bg/90 py-3 backdrop-blur-md">
         <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6">
           <Link
             href="/"
@@ -131,9 +132,9 @@ function EventsPageContent() {
             variants={staggerContainer}
           >
             {events.map((event, i) => (
-              <motion.div key={event.slug} variants={fadeUp} id={`event-${event.slug}`}>
+              <motion.div key={event.slug} variants={fadeUp} id={`event-${event.slug}`} style={{ scrollMarginTop: "80px" }}>
                 <div
-                  className="group cursor-pointer overflow-hidden rounded-2xl border border-border bg-bg-card transition-all duration-300 hover:border-accent/30 hover:shadow-lg"
+                  className="group cursor-pointer overflow-hidden rounded-2xl border border-border bg-bg-card transition-[border-color,box-shadow] duration-300 hover:border-accent/30 hover:shadow-lg"
                   onClick={() =>
                     setSelectedEvent(
                       selectedEvent === event.slug ? null : event.slug

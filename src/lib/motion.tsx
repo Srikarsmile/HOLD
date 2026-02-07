@@ -143,13 +143,20 @@ export function TiltCard({
 }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
+  const rafId = useRef<number>(0);
+
   function handleMouseMove(e: React.MouseEvent) {
     const card = cardRef.current;
     if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `translateY(-4px) perspective(600px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`;
+    cancelAnimationFrame(rafId.current);
+    const clientX = e.clientX;
+    const clientY = e.clientY;
+    rafId.current = requestAnimationFrame(() => {
+      const rect = card.getBoundingClientRect();
+      const x = (clientX - rect.left) / rect.width - 0.5;
+      const y = (clientY - rect.top) / rect.height - 0.5;
+      card.style.transform = `translateY(-4px) perspective(600px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`;
+    });
   }
 
   function handleMouseLeave() {
@@ -167,7 +174,7 @@ export function TiltCard({
       viewport={{ once: true, margin: "-40px" }}
       variants={fadeUp}
       className={className}
-      style={{ transition: "transform 0.2s ease-out" }}
+      style={{ transition: "transform 0.2s ease-out", willChange: "transform" }}
     >
       {children}
     </motion.div>

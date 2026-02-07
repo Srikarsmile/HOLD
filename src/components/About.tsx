@@ -13,8 +13,8 @@ export default function About() {
             <div className="relative">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
                 <Image
-                  src="https://images.unsplash.com/photo-1529070538774-1f9e5c292307?w=800&h=600&fit=crop"
-                  alt="Young people in an urban community workshop setting"
+                  src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=600&fit=crop"
+                  alt="Diverse group of people joining hands together in community"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"

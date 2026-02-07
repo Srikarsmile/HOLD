@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Reveal, fadeUp, staggerContainer, TiltCard } from "@/lib/motion";
 
 const programs = [
@@ -8,22 +9,31 @@ const programs = [
     title: "Cultural Education",
     desc: "Culturally safe spaces where young people explore identity, heritage, and creative expression. We celebrate diversity and challenge inequality through education that centres lived experience.",
     tags: ["Identity", "Heritage", "Creative Expression"],
+    image:
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop",
+    imageAlt: "Young people engaged in a creative cultural education workshop",
   },
   {
     title: "Youth Development",
     desc: "Skills-building workshops and mentoring that equip young people with confidence, resilience, and the tools to shape their futures. We nurture local talent and celebrate potential.",
     tags: ["Workshops", "Mentoring", "Skills"],
+    image:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop",
+    imageAlt: "Young people collaborating in a mentoring workshop session",
   },
   {
     title: "Community Support",
     desc: "Strengthening grassroots networks and providing support for families affected by inequality and exclusion. Real, grounded work that meets people where they are.",
     tags: ["Grassroots", "Families", "Inclusion"],
+    image:
+      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop",
+    imageAlt: "Community members supporting each other in a group setting",
   },
 ];
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-full border border-border bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-text-secondary">
+    <span className="rounded-full border border-border bg-surface px-3.5 py-1.5 text-xs font-medium text-text-secondary">
       {children}
     </span>
   );
@@ -61,20 +71,33 @@ export default function Programs() {
 
         {/* Programs Grid */}
         <motion.div
-          className="mt-10 grid gap-5 sm:mt-14 sm:gap-6 md:mt-20 md:grid-cols-2"
+          className="mt-10 grid gap-5 sm:mt-14 sm:gap-6 md:mt-20"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
         >
           {/* Featured: Roots & Wings */}
-          <TiltCard className="group relative col-span-full overflow-hidden rounded-2xl border border-accent/10 bg-gradient-to-br from-bg-card to-accent/[0.03] p-6 sm:p-8 md:p-12">
-            <div className="grid items-center gap-6 md:grid-cols-[1fr_auto] md:gap-10">
-              <div>
+          <TiltCard className="group relative col-span-full overflow-hidden rounded-2xl border border-accent/10 bg-gradient-to-br from-bg-card to-accent/[0.03]">
+            <div className="grid items-center md:grid-cols-2">
+              {/* Image */}
+              <div className="relative aspect-[16/10] md:aspect-auto md:h-full">
+                <Image
+                  src="https://images.unsplash.com/photo-1609234656388-0ff363383899?w=800&h=600&fit=crop"
+                  alt="Families and young people participating in the Roots and Wings programme"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-bg-card/80 hidden md:block" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-card/80 to-transparent md:hidden" />
+              </div>
+              {/* Content */}
+              <div className="relative p-6 sm:p-8 md:p-10 lg:p-12">
                 <span className="mb-4 inline-block rounded-full border border-accent/15 bg-accent-glow px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-wider text-accent">
                   National Lottery Funded
                 </span>
-                <h3 className="mb-4 font-[family-name:var(--font-heading)] text-2xl font-semibold">
+                <h3 className="mb-4 font-[family-name:var(--font-heading)] text-2xl font-semibold sm:text-3xl">
                   Roots & Wings
                 </h3>
                 <p className="mb-6 leading-relaxed text-text-secondary">
@@ -90,37 +113,44 @@ export default function Programs() {
                   <Tag>Youth Voice</Tag>
                 </div>
               </div>
-              {/* Decorative Circles */}
-              <div className="relative hidden h-48 w-48 flex-shrink-0 md:block">
-                <div className="orbit-circle absolute inset-0 rounded-full border-[1.5px] border-accent/20">
-                  <div className="absolute -top-1 left-1/2 h-2 w-2 rounded-full bg-accent shadow-[0_0_15px_var(--color-accent)]" />
-                </div>
-                <div className="orbit-circle-reverse absolute inset-7 rounded-full border-[1.5px] border-accent-warm/15">
-                  <div className="absolute -top-1 left-1/2 h-2 w-2 rounded-full bg-accent-warm shadow-[0_0_15px_var(--color-accent-warm)]" />
-                </div>
-              </div>
             </div>
           </TiltCard>
 
-          {/* Other Programs */}
-          {programs.map((prog) => (
-            <TiltCard
-              key={prog.title}
-              className="card-shadow group overflow-hidden rounded-2xl border border-border bg-bg-card p-6 transition-all duration-500 sm:p-8 md:p-10 hover:border-border-hover"
-            >
-              <h3 className="mb-4 font-[family-name:var(--font-heading)] text-xl font-semibold">
-                {prog.title}
-              </h3>
-              <p className="mb-6 text-[0.95rem] leading-relaxed text-text-secondary">
-                {prog.desc}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {prog.tags.map((t) => (
-                  <Tag key={t}>{t}</Tag>
-                ))}
-              </div>
-            </TiltCard>
-          ))}
+          {/* Other Programs - 3 column grid */}
+          <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {programs.map((prog) => (
+              <TiltCard
+                key={prog.title}
+                className="card-shadow group overflow-hidden rounded-2xl border border-border bg-bg-card transition-all duration-500 hover:border-border-hover"
+              >
+                {/* Card Image */}
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <Image
+                    src={prog.image}
+                    alt={prog.imageAlt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent" />
+                </div>
+                {/* Card Content */}
+                <div className="p-5 sm:p-6">
+                  <h3 className="mb-3 font-[family-name:var(--font-heading)] text-xl font-semibold">
+                    {prog.title}
+                  </h3>
+                  <p className="mb-5 text-[0.95rem] leading-relaxed text-text-secondary">
+                    {prog.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {prog.tags.map((t) => (
+                      <Tag key={t}>{t}</Tag>
+                    ))}
+                  </div>
+                </div>
+              </TiltCard>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

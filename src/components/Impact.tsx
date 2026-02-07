@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Reveal, staggerContainer, TiltCard } from "@/lib/motion";
 
 const testimonials = [
@@ -9,18 +10,24 @@ const testimonials = [
       "Hold It Down gave my family a space where we could just be ourselves. My son found his voice through the workshops, and I found a community that truly understands us.",
     name: "Community Parent",
     role: "Roots & Wings Participant",
+    avatar:
+      "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=120&h=120&fit=crop&crop=face",
   },
   {
     quote:
       "For the first time, I felt like someone actually cared about what I had to say. The mentors here don\u2019t just talk at you \u2014 they listen, they understand, and they push you to believe in yourself.",
     name: "Young Person",
     role: "Youth Programme Member",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face",
   },
   {
     quote:
       "This isn\u2019t charity \u2014 it\u2019s community. Hold It Down is built by people who\u2019ve lived it. That\u2019s what makes it real. That\u2019s what makes it work.",
     name: "Local Volunteer",
     role: "Community Member",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&crop=face",
   },
 ];
 
@@ -63,9 +70,20 @@ export default function Impact() {
               <p className="flex-1 text-[0.95rem] italic leading-relaxed text-text-secondary">
                 {t.quote}
               </p>
-              <div className="mt-7 border-t border-border pt-5">
-                <p className="text-sm font-semibold">{t.name}</p>
-                <p className="text-xs text-text-tertiary">{t.role}</p>
+              <div className="mt-7 flex items-center gap-3 border-t border-border pt-5">
+                <div className="relative h-10 w-10 flex-shrink-0 overflow-hidden rounded-full border border-border">
+                  <Image
+                    src={t.avatar}
+                    alt={t.name}
+                    fill
+                    className="object-cover"
+                    sizes="40px"
+                  />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">{t.name}</p>
+                  <p className="text-xs text-text-tertiary">{t.role}</p>
+                </div>
               </div>
             </TiltCard>
           ))}

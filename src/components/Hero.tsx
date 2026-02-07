@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Reveal, fadeUp } from "@/lib/motion";
 
 export default function Hero() {
@@ -45,82 +46,106 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-[900px] text-center">
-        <Reveal>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-bg-card px-3.5 py-1.5 text-[0.65rem] font-medium uppercase tracking-wider text-text-secondary sm:mb-10 sm:gap-2.5 sm:px-5 sm:py-2 sm:text-xs">
-            <span className="badge-dot h-1.5 w-1.5 rounded-full bg-accent sm:h-2 sm:w-2" />
-            Community Interest Company &mdash; Croydon, UK
-          </div>
-        </Reveal>
+      <div className="relative z-10 mx-auto max-w-[1100px]">
+        <div className="grid items-center gap-10 md:grid-cols-[1fr_auto] md:gap-16">
+          {/* Text Column */}
+          <div className="text-center md:text-left">
+            <Reveal>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-bg-card px-3.5 py-1.5 text-[0.65rem] font-medium uppercase tracking-wider text-text-secondary sm:mb-10 sm:gap-2.5 sm:px-5 sm:py-2 sm:text-xs">
+                <span className="badge-dot h-1.5 w-1.5 rounded-full bg-accent sm:h-2 sm:w-2" />
+                Community Interest Company &mdash; Croydon, UK
+              </div>
+            </Reveal>
 
-        <div className="mb-8">
-          <motion.h1
-            className="font-[family-name:var(--font-heading)] text-[clamp(2.25rem,8vw,6.5rem)] font-bold leading-[1.05] tracking-tight"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.15 } },
-            }}
-          >
-            <motion.span
-              className="block overflow-hidden"
-              variants={fadeUp}
-            >
-              Amplifying
-            </motion.span>
-            <motion.span
-              className="block overflow-hidden"
-              variants={fadeUp}
-            >
-              <span className="text-gradient">Unheard</span> Voices
-            </motion.span>
-          </motion.h1>
-        </div>
-
-        <Reveal delay={0.3}>
-          <p className="mx-auto mb-8 max-w-[640px] text-[clamp(0.9rem,2.5vw,1.2rem)] leading-relaxed text-text-secondary sm:mb-12">
-            A bold movement rooted in lived experience and driven by the urgency
-            for change. We centre truth, nurture belonging, and cultivate a
-            culture where connection, care, and courage are lived actions.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.5}>
-          <div className="flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4">
-            <a
-              href="#programs"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#programs")?.scrollIntoView({ behavior: "smooth", block: "start" });
-              }}
-              className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-accent-warm px-6 py-3.5 text-sm font-semibold text-white transition-all sm:w-auto sm:px-8 hover:-translate-y-0.5 hover:shadow-lg"
-            >
-              <span>Our Programs</span>
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            <div className="mb-8">
+              <motion.h1
+                className="font-[family-name:var(--font-heading)] text-[clamp(2.25rem,8vw,5.5rem)] font-bold leading-[1.05] tracking-tight"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: {},
+                  visible: { transition: { staggerChildren: 0.15 } },
+                }}
               >
-                <path d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
-              }}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border-hover px-6 py-3.5 text-sm font-semibold text-text-primary transition-all sm:w-auto sm:px-8 hover:-translate-y-0.5 hover:border-accent/30 hover:bg-accent/5"
-            >
-              Get In Touch
-            </a>
+                <motion.span
+                  className="block overflow-hidden"
+                  variants={fadeUp}
+                >
+                  Amplifying
+                </motion.span>
+                <motion.span
+                  className="block overflow-hidden"
+                  variants={fadeUp}
+                >
+                  <span className="text-gradient">Unheard</span> Voices
+                </motion.span>
+              </motion.h1>
+            </div>
+
+            <Reveal delay={0.3}>
+              <p className="mx-auto mb-8 max-w-[540px] text-[clamp(0.9rem,2.5vw,1.15rem)] leading-relaxed text-text-secondary sm:mb-12 md:mx-0">
+                A bold movement rooted in lived experience and driven by the urgency
+                for change. We centre truth, nurture belonging, and cultivate a
+                culture where connection, care, and courage are lived actions.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.5}>
+              <div className="flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:gap-4 md:justify-start">
+                <a
+                  href="#programs"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector("#programs")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-accent-warm px-6 py-3.5 text-sm font-semibold text-white transition-all sm:w-auto sm:px-8 hover:-translate-y-0.5 hover:shadow-lg"
+                >
+                  <span>Our Programs</span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  >
+                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                </a>
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border-hover px-6 py-3.5 text-sm font-semibold text-text-primary transition-all sm:w-auto sm:px-8 hover:-translate-y-0.5 hover:border-accent/30 hover:bg-accent/5"
+                >
+                  Get In Touch
+                </a>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
+
+          {/* Hero Image */}
+          <Reveal delay={0.4}>
+            <div className="relative mx-auto hidden w-[320px] md:block lg:w-[380px]">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-border">
+                <Image
+                  src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=760&h=1000&fit=crop&crop=faces"
+                  alt="Young people from diverse backgrounds smiling together in community"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 0px, 380px"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/60 via-transparent to-transparent" />
+              </div>
+              {/* Decorative accent */}
+              <div className="absolute -right-3 -bottom-3 -z-10 h-full w-full rounded-2xl border border-accent/20 bg-accent/5" />
+            </div>
+          </Reveal>
+        </div>
       </div>
 
       {/* Scroll Indicator */}

@@ -118,11 +118,12 @@ export default function Gallery() {
                                     src={image.src}
                                     alt={image.alt}
                                     fill
+                                    quality={95}
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                                     sizes={isWide ? "(max-width: 640px) 100vw, (max-width: 768px) 66vw, 50vw" : "(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"}
                                 />
                                 {/* Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-bg/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-bg/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                                 {/* Caption */}
                                 <div className="absolute bottom-0 left-0 right-0 translate-y-full p-3 transition-transform duration-300 group-hover:translate-y-0 sm:p-4">
                                     <p className="text-xs font-semibold text-white sm:text-sm">
@@ -139,8 +140,10 @@ export default function Gallery() {
                     <div className="mt-10 sm:mt-14 md:mt-16">
                         <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-bg-card">
                             <video
-                                className="h-full w-full object-cover"
+                                className="h-full w-full object-contain"
                                 controls
+                                playsInline
+                                preload="metadata"
                                 poster="/media/image-10.jpeg"
                             >
                                 <source src="/media/video-1.mp4" type="video/mp4" />
@@ -168,14 +171,14 @@ export default function Gallery() {
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
-                            className="relative max-h-[85vh] max-w-[90vw] overflow-hidden rounded-2xl border border-border"
+                            className="relative h-[85vh] w-[90vw] max-h-[85vh] max-w-[90vw] overflow-hidden rounded-2xl border border-border"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <Image
                                 src={galleryImages[selectedImage].src}
                                 alt={galleryImages[selectedImage].alt}
-                                width={1200}
-                                height={900}
+                                fill
+                                unoptimized
                                 className="object-contain"
                             />
                             <button

@@ -52,10 +52,11 @@ export default function Events() {
                       src={event.image}
                       alt={event.imageAlt}
                       fill
+                      quality={95}
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bg-card/60 via-transparent to-transparent md:bg-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-bg-card/30 via-transparent to-transparent md:bg-none" />
                     {/* Badge */}
                     <div className="absolute top-4 left-4 rounded-full border border-accent/20 bg-bg/80 px-4 py-1.5 text-xs font-semibold text-accent backdrop-blur-sm">
                       {event.badge}

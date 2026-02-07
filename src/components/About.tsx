@@ -23,10 +23,11 @@ export default function About() {
                   src="/media/image-2.jpeg"
                   alt="Hold It Down CIC banner - I Can Because You Can"
                   fill
+                  quality={95}
                   className="object-cover object-center"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/20 via-transparent to-transparent" />
               </div>
               {/* Floating badge */}
               <div className="absolute right-0 bottom-0 rounded-xl border border-border bg-bg-card px-4 py-3 shadow-lg sm:px-5 sm:py-4">

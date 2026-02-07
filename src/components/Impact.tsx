@@ -76,8 +76,9 @@ export default function Impact() {
                     src={t.avatar}
                     alt={t.name}
                     fill
+                    quality={90}
                     className="object-cover"
-                    sizes="40px"
+                    sizes="80px"
                   />
                 </div>
                 <div>

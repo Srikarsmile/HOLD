@@ -130,10 +130,11 @@ export default function EventsPage() {
                         src={event.image}
                         alt={event.imageAlt}
                         fill
+                        quality={95}
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-bg-card/60 via-transparent to-transparent md:bg-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-bg-card/30 via-transparent to-transparent md:bg-none" />
                       <div className="absolute top-4 left-4 rounded-full border border-accent/20 bg-bg/80 px-4 py-1.5 text-xs font-semibold text-accent backdrop-blur-sm">
                         {event.badge}
                       </div>
@@ -248,6 +249,7 @@ export default function EventsPage() {
                                 src={img.src}
                                 alt={img.alt}
                                 fill
+                                quality={95}
                                 className="object-cover transition-transform duration-300 group-hover/img:scale-105"
                                 sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
                               />
@@ -317,14 +319,14 @@ export default function EventsPage() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-h-[85vh] max-w-[90vw] overflow-hidden rounded-2xl border border-border"
+              className="relative h-[85vh] w-[90vw] max-h-[85vh] max-w-[90vw] overflow-hidden rounded-2xl border border-border"
               onClick={(e) => e.stopPropagation()}
             >
               <Image
                 src={activeEvent.gallery[lightboxImage].src}
                 alt={activeEvent.gallery[lightboxImage].alt}
-                width={1200}
-                height={900}
+                fill
+                unoptimized
                 className="object-contain"
               />
               <button

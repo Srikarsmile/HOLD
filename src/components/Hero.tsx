@@ -137,11 +137,12 @@ export default function Hero() {
                   src="/media/image-10.jpeg"
                   alt="Hold It Down CIC volunteers at Roots & Wings Family Fun Day"
                   fill
+                  quality={95}
                   className="object-cover object-top"
                   sizes="100vw"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg/50 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/30 via-transparent to-transparent" />
               </div>
             </div>
             {/* Tablet/Desktop: portrait beside text */}
@@ -151,11 +152,12 @@ export default function Hero() {
                   src="/media/image-10.jpeg"
                   alt="Hold It Down CIC volunteers at Roots & Wings Family Fun Day"
                   fill
+                  quality={95}
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 240px, 380px"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/30 via-transparent to-transparent" />
               </div>
               {/* Decorative accent */}
               <div className="absolute -right-3 -bottom-3 -z-10 h-full w-full rounded-2xl border border-accent/20 bg-accent/5" />

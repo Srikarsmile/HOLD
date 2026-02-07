@@ -99,11 +99,12 @@ export default function Programs() {
                   src="/media/roots/roots-2.jpeg"
                   alt="Families and children at the Roots & Wings Family Fun Day"
                   fill
+                  quality={95}
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-bg-card/80 hidden md:block" />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg-card/80 to-transparent md:hidden" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-bg-card/60 hidden md:block" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-card/50 to-transparent md:hidden" />
               </div>
               {/* Content */}
               <div className="relative p-6 sm:p-8 md:p-10 lg:p-12">
@@ -148,10 +149,11 @@ export default function Programs() {
                     src={prog.image}
                     alt={prog.imageAlt}
                     fill
+                    quality={95}
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-card/70 via-transparent to-transparent" />
                 </div>
                 {/* Card Content */}
                 <div className="p-5 sm:p-6">

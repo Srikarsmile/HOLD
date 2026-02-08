@@ -44,7 +44,10 @@ export default function Events() {
         >
           {previewEvents.map((event, i) => (
             <motion.div key={event.title} variants={fadeUp}>
-              <div className="group overflow-hidden rounded-2xl border border-border bg-bg-card">
+              <Link
+                href={`/events/${event.slug}`}
+                className="group block overflow-hidden rounded-2xl border border-border bg-bg-card transition-all duration-300 hover:border-accent/30 hover:shadow-lg"
+              >
                 <div className="grid md:grid-cols-2">
                   {/* Image */}
                   <div className={`relative aspect-[16/10] md:aspect-auto md:min-h-[400px] ${i % 2 === 1 ? "md:order-2" : ""}`}>
@@ -52,7 +55,7 @@ export default function Events() {
                       src={event.image}
                       alt={event.imageAlt}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-card/60 via-transparent to-transparent md:bg-none" />
@@ -88,35 +91,16 @@ export default function Events() {
                       {event.title}
                     </h3>
                     <p className="mb-5 leading-relaxed text-text-secondary">
-                      {event.desc}
+                      {event.desc.length > 200
+                        ? event.desc.slice(0, 200) + "..."
+                        : event.desc}
                     </p>
 
-                    {/* Highlights */}
-                    <div className="mb-5">
-                      <p className="mb-2 text-sm font-semibold text-text-primary">
-                        Highlights
-                      </p>
-                      <ul className="grid gap-1.5 sm:grid-cols-2">
-                        {event.highlights.slice(0, 4).map((h) => (
-                          <li
-                            key={h}
-                            className="flex items-start gap-2 text-sm text-text-secondary"
-                          >
-                            <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                            {h}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Impact */}
+                    {/* Impact Tags */}
                     {event.impact.length > 0 && (
-                      <div>
-                        <p className="mb-2 text-sm font-semibold text-text-primary">
-                          Impact
-                        </p>
+                      <div className="mb-5">
                         <div className="flex flex-wrap gap-2">
-                          {event.impact.map((imp) => (
+                          {event.impact.slice(0, 3).map((imp) => (
                             <span
                               key={imp}
                               className="rounded-full border border-accent/15 bg-accent-glow px-3 py-1 text-xs font-medium text-accent"
@@ -127,9 +111,25 @@ export default function Events() {
                         </div>
                       </div>
                     )}
+
+                    {/* Read Story CTA */}
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-warm">
+                      Read the full story
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

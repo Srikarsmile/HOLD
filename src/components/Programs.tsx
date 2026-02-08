@@ -36,8 +36,8 @@ const programmes = [
 ];
 
 const otherInitiatives = [
-  { title: "Mentoring", detail: "One-to-one and group support (10–17 years)" },
-  { title: "Entrepreneurship", detail: "Work experience & career pathways (14–17 years)" },
+  { title: "Mentoring", detail: "One-to-one and group support (12–25 years)" },
+  { title: "Entrepreneurship", detail: "Work experience & career pathways (12–25 years)" },
   { title: "Workshops & Retreats", detail: "Life skills, wellbeing & personal growth" },
   { title: "Sports & Football", detail: "Teamwork, discipline & confidence" },
   { title: "Family Support", detail: "Loving Yourself & The Gents Network" },

@@ -6,6 +6,7 @@ const footerLinks: { label: string; href: string; isPage?: boolean }[] = [
   { label: "Programmes", href: "#programs" },
   { label: "Events", href: "/events", isPage: true },
   { label: "Impact", href: "#impact" },
+  { label: "Team", href: "#team" },
   { label: "Gallery", href: "#gallery" },
   { label: "Support Us", href: "/support", isPage: true },
   { label: "Volunteer", href: "/volunteer", isPage: true },
@@ -28,9 +29,17 @@ export default function Footer() {
           <p className="mt-3 text-xs leading-relaxed text-text-tertiary">
             Community Interest Company
             <br />
-            Registered in England & Wales
-            <br />
-            Company No. 14377702
+            Registered in England & Wales &mdash; Company No. 14377702
+          </p>
+          <p className="mt-2 text-xs text-text-tertiary">
+            Founded by{" "}
+            <span className="font-medium text-text-secondary">
+              Marcus Jack
+            </span>{" "}
+            &amp;{" "}
+            <span className="font-medium text-text-secondary">
+              Laverne John
+            </span>
           </p>
         </div>
 

@@ -5,9 +5,11 @@ import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import About from "@/components/About";
 import Mission from "@/components/Mission";
+import AudiencePathways from "@/components/AudiencePathways";
 import Programs from "@/components/Programs";
 import Events from "@/components/Events";
 import Impact from "@/components/Impact";
+import Team from "@/components/Team";
 import CTA from "@/components/CTA";
 import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
@@ -26,9 +28,11 @@ export default function Home() {
         <Stats />
         <About />
         <Mission />
+        <AudiencePathways />
         <Programs />
         <Events />
         <Impact />
+        <Team />
         <Gallery />
         <CTA />
         <Contact />

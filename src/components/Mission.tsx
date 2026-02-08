@@ -7,7 +7,7 @@ const values = [
   {
     num: "01",
     title: "Who We Serve",
-    desc: "Young people aged 12–25, particularly those who have experienced the justice system, exclusion from school, or systemic disadvantage. We also work closely with families — mothers, fathers and carers — recognising that long-term transformation requires intergenerational healing.",
+    desc: "Young people aged 12–25 and older adults, particularly those who have experienced the justice system, exclusion, or systemic disadvantage. We work closely with families — mothers, fathers, carers, and elders — recognising that long-term transformation requires intergenerational healing across all ages.",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />

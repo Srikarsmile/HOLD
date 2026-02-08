@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Reveal, fadeUp } from "@/lib/motion";
 
 export default function Hero() {
@@ -85,9 +86,10 @@ export default function Hero() {
 
             <Reveal delay={0.3}>
               <p className="mx-auto mb-8 max-w-[540px] text-[clamp(0.9rem,2.5vw,1.15rem)] leading-relaxed text-text-secondary sm:mx-0 sm:mb-12">
-                And together we can. A Croydon-based community interest company
-                creating culturally rooted spaces that build emotional wellbeing,
-                confidence and connection across families and communities.
+                Hold It Down CIC supports young people aged 12&ndash;25 and
+                older adults through creative, wellbeing, and intergenerational
+                programmes across South London. We create safe spaces for
+                expression, confidence building, and community connection.
               </p>
             </Reveal>
 
@@ -101,7 +103,7 @@ export default function Hero() {
                   }}
                   className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-accent-warm px-6 py-3.5 text-sm font-semibold text-white transition-all sm:w-auto sm:px-8 hover:-translate-y-0.5 hover:shadow-lg"
                 >
-                  <span>Our Programs</span>
+                  <span>Join a Programme</span>
                   <svg
                     width="18"
                     height="18"
@@ -114,16 +116,12 @@ export default function Hero() {
                     <path d="M7 17L17 7M17 7H7M17 7V17" />
                   </svg>
                 </a>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }}
+                <Link
+                  href="/support"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border-hover px-6 py-3.5 text-sm font-semibold text-text-primary transition-all sm:w-auto sm:px-8 hover:-translate-y-0.5 hover:border-accent/30 hover:bg-accent/5"
                 >
-                  Get In Touch
-                </a>
+                  Support Our Work
+                </Link>
               </div>
             </Reveal>
           </div>

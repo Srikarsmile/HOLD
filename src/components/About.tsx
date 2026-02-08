@@ -58,16 +58,20 @@ export default function About() {
                 <p className="text-base leading-relaxed text-text-secondary md:text-lg">
                   Hold It Down Community Interest Company (CIC) is a Croydon-based
                   organisation that creates culturally rooted, intergenerational
-                  spaces to build emotional wellbeing, confidence and connection
-                  across families and communities.
+                  spaces to build emotional wellbeing, confidence and connection.
+                  We support young people aged 12&ndash;25 and older adults
+                  through creative, wellbeing, and community programmes across
+                  South London.
                 </p>
               </Reveal>
               <Reveal>
                 <p className="leading-relaxed text-text-secondary">
-                  Our work combines sport, creative expression, dialogue and
-                  mentorship to strengthen relationships, promote positive identity
-                  and support long-term resilience. We work with children, young
-                  people, parents, fathers, carers and elders.
+                  Our intergenerational approach is at the heart of everything we
+                  do. We bring together children, young people, parents, fathers,
+                  carers, and older adults &mdash; combining sport, creative
+                  expression, dialogue and mentorship to strengthen relationships
+                  across generations, promote positive identity and support
+                  long-term resilience.
                 </p>
               </Reveal>
               <Reveal>
@@ -75,7 +79,7 @@ export default function About() {
                   Our work is rooted in trust, co-production, and accessibility.
                   We activate familiar community spaces to make engagement feel
                   safe, inclusive, and relevant &mdash; designing projects with and
-                  for the people we serve, particularly young people from Black and
+                  for the people we serve, particularly those from Black and
                   minoritised backgrounds.
                 </p>
               </Reveal>

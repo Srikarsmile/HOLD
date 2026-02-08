@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { events } from "@/lib/events-data";
@@ -40,11 +39,6 @@ function ThemeToggle() {
 }
 
 export default function EventsPage() {
-  const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
-  const [lightboxImage, setLightboxImage] = useState<number | null>(null);
-
-  const activeEvent = events.find((e) => e.slug === selectedEvent);
-
   return (
     <div className="min-h-screen">
       {/* Navbar */}
@@ -63,6 +57,12 @@ export default function EventsPage() {
               className="text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
             >
               Home
+            </Link>
+            <Link
+              href="/support"
+              className="text-sm font-medium text-text-secondary transition-colors hover:text-text-primary"
+            >
+              Support Us
             </Link>
             <ThemeToggle />
           </div>
@@ -93,8 +93,8 @@ export default function EventsPage() {
           <Reveal>
             <p className="mx-auto mt-5 max-w-[600px] text-base leading-relaxed text-text-secondary md:text-lg">
               From family fun days to youth-led podcast sessions, our events
-              bring people together to connect, heal, and celebrate. Here&apos;s
-              what we&apos;ve been up to.
+              bring people together to connect, heal, and celebrate. Click on any
+              event to read the full story.
             </p>
           </Reveal>
         </div>
@@ -111,13 +111,9 @@ export default function EventsPage() {
           >
             {events.map((event, i) => (
               <motion.div key={event.slug} variants={fadeUp}>
-                <div
-                  className="group cursor-pointer overflow-hidden rounded-2xl border border-border bg-bg-card transition-all duration-300 hover:border-accent/30 hover:shadow-lg"
-                  onClick={() =>
-                    setSelectedEvent(
-                      selectedEvent === event.slug ? null : event.slug
-                    )
-                  }
+                <Link
+                  href={`/events/${event.slug}`}
+                  className="group block overflow-hidden rounded-2xl border border-border bg-bg-card transition-all duration-300 hover:border-accent/30 hover:shadow-lg"
                 >
                   <div className="grid md:grid-cols-2">
                     {/* Image */}
@@ -164,35 +160,16 @@ export default function EventsPage() {
                         {event.title}
                       </h2>
                       <p className="mb-5 leading-relaxed text-text-secondary">
-                        {event.desc}
+                        {event.desc.length > 200
+                          ? event.desc.slice(0, 200) + "..."
+                          : event.desc}
                       </p>
 
-                      {/* Highlights */}
-                      <div className="mb-5">
-                        <p className="mb-2 text-sm font-semibold text-text-primary">
-                          Highlights
-                        </p>
-                        <ul className="grid gap-1.5 sm:grid-cols-2">
-                          {event.highlights.map((h) => (
-                            <li
-                              key={h}
-                              className="flex items-start gap-2 text-sm text-text-secondary"
-                            >
-                              <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                              {h}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Impact */}
+                      {/* Impact Tags */}
                       {event.impact.length > 0 && (
                         <div className="mb-5">
-                          <p className="mb-2 text-sm font-semibold text-text-primary">
-                            Impact
-                          </p>
                           <div className="flex flex-wrap gap-2">
-                            {event.impact.map((imp) => (
+                            {event.impact.slice(0, 3).map((imp) => (
                               <span
                                 key={imp}
                                 className="rounded-full border border-accent/15 bg-accent-glow px-3 py-1 text-xs font-medium text-accent"
@@ -204,11 +181,9 @@ export default function EventsPage() {
                         </div>
                       )}
 
-                      {/* View Gallery Toggle */}
-                      <button className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-accent-warm">
-                        {selectedEvent === event.slug
-                          ? "Hide gallery"
-                          : `View gallery (${event.gallery.length} photos)`}
+                      {/* Read Story CTA */}
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors group-hover:text-accent-warm">
+                        Read the full story
                         <svg
                           width="16"
                           height="16"
@@ -216,76 +191,50 @@ export default function EventsPage() {
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="2"
-                          className={`transition-transform duration-300 ${
-                            selectedEvent === event.slug ? "rotate-180" : ""
-                          }`}
+                          className="transition-transform duration-300 group-hover:translate-x-1"
                         >
-                          <path d="M6 9l6 6 6-6" />
+                          <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
-                      </button>
+                      </span>
                     </div>
                   </div>
-
-                  {/* Expandable Gallery */}
-                  <AnimatePresence>
-                    {selectedEvent === event.slug && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden border-t border-border"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <div className="grid grid-cols-2 gap-3 p-4 sm:grid-cols-3 md:grid-cols-4 sm:p-6">
-                          {event.gallery.map((img, idx) => (
-                            <div
-                              key={idx}
-                              className="group/img relative aspect-square cursor-pointer overflow-hidden rounded-lg border border-border transition-all hover:border-accent/30"
-                              onClick={() => setLightboxImage(idx)}
-                            >
-                              <Image
-                                src={img.src}
-                                alt={img.alt}
-                                fill
-                                className="object-cover transition-transform duration-300 group-hover/img:scale-105"
-                                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Back to Home CTA */}
+      {/* CTA */}
       <section className="border-t border-border px-5 py-12 text-center sm:px-6">
         <p className="mb-4 text-text-secondary">
           Want to get involved in our next event?
         </p>
-        <Link
-          href="/#contact"
-          className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-accent-warm px-8 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
-        >
-          <span>Get In Touch</span>
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            className="transition-transform group-hover:translate-x-0.5"
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <Link
+            href="/volunteer"
+            className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-text-primary transition-all hover:border-accent/30 hover:bg-bg-card"
           >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </Link>
+            Volunteer With Us
+          </Link>
+          <Link
+            href="/support"
+            className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-accent-warm px-8 py-3 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:shadow-lg"
+          >
+            <span>Support Us</span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="transition-transform group-hover:translate-x-0.5"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
       </section>
 
       {/* Footer */}
@@ -302,78 +251,6 @@ export default function EventsPage() {
           reserved.
         </p>
       </footer>
-
-      {/* Lightbox */}
-      <AnimatePresence>
-        {lightboxImage !== null && activeEvent && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-bg/95 backdrop-blur-sm p-4"
-            onClick={() => setLightboxImage(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-h-[85vh] max-w-[90vw] overflow-hidden rounded-2xl border border-border"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={activeEvent.gallery[lightboxImage].src}
-                alt={activeEvent.gallery[lightboxImage].alt}
-                width={1200}
-                height={900}
-                className="object-contain"
-              />
-              <button
-                onClick={() => setLightboxImage(null)}
-                className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-bg/80 text-text-primary backdrop-blur-sm transition-colors hover:bg-accent hover:text-white"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M18 6L6 18M6 6l12 12" />
-                </svg>
-              </button>
-              <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setLightboxImage(
-                      lightboxImage === 0
-                        ? activeEvent.gallery.length - 1
-                        : lightboxImage - 1
-                    );
-                  }}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-bg/80 text-text-primary backdrop-blur-sm transition-colors hover:bg-accent hover:text-white"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M15 18l-6-6 6-6" />
-                  </svg>
-                </button>
-                <span className="flex items-center px-3 text-sm text-text-secondary">
-                  {lightboxImage + 1} / {activeEvent.gallery.length}
-                </span>
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setLightboxImage(
-                      lightboxImage === activeEvent.gallery.length - 1
-                        ? 0
-                        : lightboxImage + 1
-                    );
-                  }}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-bg/80 text-text-primary backdrop-blur-sm transition-colors hover:bg-accent hover:text-white"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M9 18l6-6-6-6" />
-                  </svg>
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

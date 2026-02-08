@@ -12,6 +12,8 @@ const links: { label: string; href: string; isPage?: boolean }[] = [
   { label: "Events", href: "/events", isPage: true },
   { label: "Impact", href: "#impact" },
   { label: "Gallery", href: "#gallery" },
+  { label: "Support Us", href: "/support", isPage: true },
+  { label: "Volunteer", href: "/volunteer", isPage: true },
   { label: "Contact", href: "#contact" },
 ];
 

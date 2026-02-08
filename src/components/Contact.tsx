@@ -125,7 +125,7 @@ function ContactForm() {
 
   return (
     <Reveal>
-      <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <div className="grid gap-4 sm:grid-cols-2">
           <input
             type="text"
@@ -182,30 +182,35 @@ export default function Contact() {
   return (
     <section id="contact" className="py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
-        <div className="grid gap-8 md:grid-cols-2 md:gap-20">
-          {/* Left */}
+        {/* Header */}
+        <div className="mb-10 max-w-xl">
+          <Reveal>
+            <span className="mb-5 inline-block rounded-full border border-accent/15 bg-accent-glow px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-accent">
+              Get In Touch
+            </span>
+          </Reveal>
+          <Reveal>
+            <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(2rem,4vw,3rem)] font-bold leading-tight tracking-tight">
+              Let&apos;s <span className="text-gradient">connect</span>
+            </h2>
+          </Reveal>
+          <Reveal>
+            <p className="leading-relaxed text-text-secondary">
+              We&apos;d love to hear from you. Whether you want to join a
+              programme, volunteer, partner with us, or just learn more &mdash;
+              reach out.
+            </p>
+          </Reveal>
+        </div>
+
+        {/* Form + Contact Cards */}
+        <div className="grid items-start gap-8 md:grid-cols-2 md:gap-12">
+          {/* Left - Form */}
           <div>
-            <Reveal>
-              <span className="mb-5 inline-block rounded-full border border-accent/15 bg-accent-glow px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-accent">
-                Get In Touch
-              </span>
-            </Reveal>
-            <Reveal>
-              <h2 className="mb-5 font-[family-name:var(--font-heading)] text-[clamp(2rem,4vw,3rem)] font-bold leading-tight tracking-tight">
-                Let&apos;s <span className="text-gradient">connect</span>
-              </h2>
-            </Reveal>
-            <Reveal>
-              <p className="leading-relaxed text-text-secondary">
-                We&apos;d love to hear from you. Whether you want to join a
-                programme, volunteer, partner with us, or just learn more &mdash;
-                reach out.
-              </p>
-            </Reveal>
             <ContactForm />
           </div>
 
-          {/* Right */}
+          {/* Right - Contact Cards */}
           <motion.div
             className="flex flex-col gap-4"
             initial="hidden"

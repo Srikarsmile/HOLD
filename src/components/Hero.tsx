@@ -54,7 +54,7 @@ export default function Hero() {
             <Reveal>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-bg-card px-3.5 py-1.5 text-[0.65rem] font-medium uppercase tracking-wider text-text-secondary sm:mb-10 sm:gap-2.5 sm:px-5 sm:py-2 sm:text-xs">
                 <span className="badge-dot h-1.5 w-1.5 rounded-full bg-accent sm:h-2 sm:w-2" />
-                Community Interest Company &mdash; Croydon, UK
+                Community Interest Company - Croydon, UK
               </div>
             </Reveal>
 

@@ -21,7 +21,7 @@ export default function CTA() {
               <p className="mx-auto mb-8 max-w-[600px] text-base leading-relaxed text-text-secondary sm:mb-10 md:text-lg">
                 Whether you&apos;re a young person looking for a safe space, a
                 family seeking community, or someone who wants to support
-                grassroots change &mdash; we want to hear from you.
+                grassroots change - we want to hear from you.
               </p>
               <a
                 href="#contact"

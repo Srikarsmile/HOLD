@@ -24,7 +24,7 @@ export const events: EventData[] = [
       "Football & athletics challenges",
       "Dance and spoken-word performances",
       "Facilitated men's discussion on vulnerability and love",
-      "The Tree of Hope — families reflecting on legacy and the future",
+      "The Tree of Hope - families reflecting on legacy and the future",
       "Face painting and creative activities for children",
     ],
     impact: [
@@ -53,7 +53,7 @@ export const events: EventData[] = [
   },
   {
     slug: "talk-di-tingz-2025",
-    title: "Talk Di TingZ — Youth Podcast Sessions",
+    title: "Talk Di TingZ - Youth Podcast Sessions",
     date: "Ongoing 2025",
     location: "Various community spaces, Croydon",
     desc: "A youth-led safe space to discuss identity, relationships, and life issues. Young people lead the conversation, building emotional literacy and driving cultural change through truth-telling and respect. Sessions take place across different community venues in Croydon, bringing together diverse voices.",
@@ -76,7 +76,7 @@ export const events: EventData[] = [
     title: "Outdoor Adventure & Team Building",
     date: "Summer 2024",
     location: "Various outdoor centres",
-    desc: "Young people were taken on outdoor adventure trips designed to build resilience, teamwork and confidence. Activities included high ropes, river crossings, football matches and nature exploration — pushing boundaries in a safe, supported environment.",
+    desc: "Young people were taken on outdoor adventure trips designed to build resilience, teamwork and confidence. Activities included high ropes, river crossings, football matches and nature exploration - pushing boundaries in a safe, supported environment.",
     highlights: [
       "High ropes & climbing challenges",
       "River crossing adventures",

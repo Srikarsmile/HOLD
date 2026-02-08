@@ -7,7 +7,7 @@ const values = [
   {
     num: "01",
     title: "Who We Serve",
-    desc: "Young people aged 12–25, particularly those who have experienced the justice system, exclusion from school, or systemic disadvantage. We also work closely with families — mothers, fathers and carers — recognising that long-term transformation requires intergenerational healing.",
+    desc: "Young people aged 12–25, particularly those who have experienced the justice system, exclusion from school, or systemic disadvantage. We also work closely with families - mothers, fathers and carers - recognising that long-term transformation requires intergenerational healing.",
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -72,7 +72,7 @@ export default function Mission() {
           </Reveal>
           <Reveal>
             <p className="mx-auto mt-5 max-w-[600px] text-base leading-relaxed text-text-secondary md:text-lg">
-              We meet young people where they are &mdash; not to control
+              We meet young people where they are - not to control
               behaviour, but to heal the root causes of disconnection by
               affirming identity, restoring dignity, and creating spaces of
               belonging.

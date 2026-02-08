@@ -74,7 +74,7 @@ export default function About() {
                 <p className="leading-relaxed text-text-secondary">
                   Our work is rooted in trust, co-production, and accessibility.
                   We activate familiar community spaces to make engagement feel
-                  safe, inclusive, and relevant &mdash; designing projects with and
+                  safe, inclusive, and relevant - designing projects with and
                   for the people we serve, particularly young people from Black and
                   minoritised backgrounds.
                 </p>

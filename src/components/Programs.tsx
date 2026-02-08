@@ -21,7 +21,7 @@ const programmes = [
   },
   {
     title: "Talk Di TingZ",
-    desc: "Our youth-led podcast offering a safe space for young people to discuss real issues — identity, relationships, and emotional wellbeing. Building a culture of openness where young people lead the conversation.",
+    desc: "Our youth-led podcast offering a safe space for young people to discuss real issues - identity, relationships, and emotional wellbeing. Building a culture of openness where young people lead the conversation.",
     tags: ["Youth Podcast", "Safe Space", "Identity"],
     image: "/media/talkdi/talkdi-1.jpeg",
     imageAlt: "Talk Di TingZ youth podcast team",

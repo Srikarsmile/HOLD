@@ -89,7 +89,7 @@ export default function Gallery() {
                     </Reveal>
                     <Reveal>
                         <p className="mx-auto mt-5 max-w-[600px] text-base leading-relaxed text-text-secondary md:text-lg">
-                            Highlights from our community events — real families, real connections, real impact.
+                            Highlights from our community events - real families, real connections, real impact.
                         </p>
                     </Reveal>
                 </div>

@@ -111,7 +111,7 @@ export default function Contact() {
             <Reveal>
               <p className="leading-relaxed text-text-secondary">
                 We&apos;d love to hear from you. Whether you want to join a
-                programme, volunteer, partner with us, or just learn more &mdash;
+                programme, volunteer, partner with us, or just learn more -
                 reach out.
               </p>
             </Reveal>

@@ -73,13 +73,13 @@ export default function Hero() {
                   className="block overflow-hidden"
                   variants={fadeUp}
                 >
-                  I Can Because
+                  I Can, You Can,
                 </motion.span>
                 <motion.span
                   className="block overflow-hidden"
                   variants={fadeUp}
                 >
-                  <span className="text-gradient">You Can</span>
+                  <span className="text-gradient">Because We Can</span>
                 </motion.span>
               </motion.h1>
             </div>

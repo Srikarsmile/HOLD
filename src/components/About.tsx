@@ -21,7 +21,7 @@ export default function About() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
                 <Image
                   src="/media/image-2.jpeg"
-                  alt="Hold It Down CIC banner - I Can Because You Can"
+                  alt="Hold It Down CIC banner - I Can, You Can, Because We Can"
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 768px) 100vw, 50vw"

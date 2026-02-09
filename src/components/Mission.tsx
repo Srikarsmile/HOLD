@@ -64,10 +64,8 @@ export default function Mission() {
           </Reveal>
           <Reveal>
             <h2 className="mx-auto max-w-[700px] font-[family-name:var(--font-heading)] text-[clamp(2rem,4vw,3rem)] font-bold leading-tight tracking-tight">
-              I can because you can
-              <br />
-              and together{" "}
-              <span className="text-gradient">we can</span>
+              I can, you can,{" "}
+              <span className="text-gradient">because we can</span>
             </h2>
           </Reveal>
           <Reveal>

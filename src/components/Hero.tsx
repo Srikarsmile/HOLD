@@ -140,10 +140,10 @@ export default function Hero() {
             <div className="relative mx-auto w-full max-w-[400px] sm:hidden">
               <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border">
                 <Image
-                  src="/media/image-10.jpeg"
-                  alt="Hold It Down CIC volunteers at Roots & Wings Family Fun Day"
+                  src="/media/roots/roots-24.jpeg"
+                  alt="Hold It Down CIC members gathered around a table in matching blue hoodies"
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-center"
                   sizes="100vw"
                   priority
                 />
@@ -154,10 +154,10 @@ export default function Hero() {
             <div className="relative mx-auto hidden w-[240px] sm:block md:w-[320px] lg:w-[380px]">
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-border">
                 <Image
-                  src="/media/image-10.jpeg"
-                  alt="Hold It Down CIC volunteers at Roots & Wings Family Fun Day"
+                  src="/media/roots/roots-24.jpeg"
+                  alt="Hold It Down CIC members gathered around a table in matching blue hoodies"
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-center"
                   sizes="(max-width: 768px) 240px, 380px"
                   priority
                 />

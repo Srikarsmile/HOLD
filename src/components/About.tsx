@@ -2,26 +2,75 @@
 
 import Image from "next/image";
 import { Reveal } from "@/lib/motion";
+import type { AboutContent } from "@/lib/types";
 
-const focusAreas = [
+const defaultFocusAreas = [
   { icon: "🧠", text: "Emotional literacy & wellbeing" },
   { icon: "💪", text: "Positive masculinity & male role modelling" },
   { icon: "🤝", text: "Intergenerational connection & cohesion" },
   { icon: "🏠", text: "Safe, inclusive spaces for healing" },
 ];
 
-export default function About() {
+interface AboutProps {
+  content: AboutContent | null;
+}
+
+export default function About({ content }: AboutProps) {
+  const calloutTitle = content?.callout_title ?? "Intergenerational at our core";
+  const calloutText = content?.callout_text ?? "Intergenerational work is central to our approach, bringing young people and older adults together to learn, create and strengthen community connections.";
+  const aboutImage = content?.image ?? "/media/image-2.jpeg";
+  const aboutImageAlt = content?.image_alt ?? "Hold It Down CIC banner - I Can Because You Can";
+  const badgeYear = content?.badge_year ?? "Est. 2022";
+  const badgeLocation = content?.badge_location ?? "Croydon, South London";
+  const sectionLabel = content?.section_label ?? "Who We Are";
+  const heading = content?.heading ?? "Culturally rooted, community driven";
+  const paragraphs = content?.paragraphs ?? [
+    "Hold It Down Community Interest Company (CIC) is a Croydon-based organisation that creates culturally rooted, intergenerational spaces to build emotional wellbeing, confidence and connection across families and communities.",
+    "Our work combines sport, creative expression, dialogue and mentorship to strengthen relationships, promote positive identity and support long-term resilience. We work with children, young people, parents, fathers, carers and elders.",
+    "Our work is rooted in trust, co-production, and accessibility. We activate familiar community spaces to make engagement feel safe, inclusive, and relevant \u2014 designing projects with and for the people we serve, particularly young people from Black and minoritised backgrounds.",
+  ];
+  const focusAreas = content?.focus_areas ?? defaultFocusAreas;
+
+  // Split heading into parts for gradient styling
+  const headingParts = heading.split(",");
+  const headingMain = headingParts[0] + ",";
+  const headingHighlight = headingParts.slice(1).join(",").trim();
+
   return (
     <section id="about" className="py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
+        {/* Intergenerational Focus Callout */}
+        <Reveal>
+          <div className="mb-10 rounded-2xl border border-accent/20 bg-gradient-to-r from-accent/[0.04] to-accent-warm/[0.04] p-6 sm:mb-14 sm:p-8 md:p-10">
+            <div className="flex items-start gap-4 sm:gap-5">
+              <div className="mt-0.5 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-accent-glow text-accent sm:h-14 sm:w-14">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="mb-2 font-[family-name:var(--font-heading)] text-lg font-semibold sm:text-xl">
+                  {calloutTitle}
+                </h3>
+                <p className="text-base leading-relaxed text-text-secondary md:text-lg">
+                  {calloutText}
+                </p>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-20">
           {/* Left - Image */}
           <Reveal>
             <div className="relative overflow-visible pr-4 pb-4 sm:pr-5 sm:pb-5">
               <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
                 <Image
-                  src="/media/image-2.jpeg"
-                  alt="Hold It Down CIC banner - I Can Because You Can"
+                  src={aboutImage}
+                  alt={aboutImageAlt}
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -31,10 +80,10 @@ export default function About() {
               {/* Floating badge */}
               <div className="absolute right-0 bottom-0 rounded-xl border border-border bg-bg-card px-4 py-3 shadow-lg sm:px-5 sm:py-4">
                 <p className="font-[family-name:var(--font-heading)] text-lg font-bold text-accent sm:text-xl">
-                  Est. 2022
+                  {badgeYear}
                 </p>
                 <p className="text-[0.65rem] text-text-secondary sm:text-xs">
-                  Croydon, South London
+                  {badgeLocation}
                 </p>
               </div>
             </div>
@@ -44,41 +93,23 @@ export default function About() {
           <div>
             <Reveal>
               <span className="mb-5 inline-block rounded-full border border-accent/15 bg-accent-glow px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-accent">
-                Who We Are
+                {sectionLabel}
               </span>
             </Reveal>
             <Reveal>
               <h2 className="mb-6 font-[family-name:var(--font-heading)] text-[clamp(2rem,4vw,3rem)] font-bold leading-tight tracking-tight">
-                Culturally rooted,{" "}
-                <span className="text-gradient">community driven</span>
+                {headingMain}{" "}
+                <span className="text-gradient">{headingHighlight}</span>
               </h2>
             </Reveal>
             <div className="space-y-5">
-              <Reveal>
-                <p className="text-base leading-relaxed text-text-secondary md:text-lg">
-                  Hold It Down Community Interest Company (CIC) is a Croydon-based
-                  organisation that creates culturally rooted, intergenerational
-                  spaces to build emotional wellbeing, confidence and connection
-                  across families and communities.
-                </p>
-              </Reveal>
-              <Reveal>
-                <p className="leading-relaxed text-text-secondary">
-                  Our work combines sport, creative expression, dialogue and
-                  mentorship to strengthen relationships, promote positive identity
-                  and support long-term resilience. We work with children, young
-                  people, parents, fathers, carers and elders.
-                </p>
-              </Reveal>
-              <Reveal>
-                <p className="leading-relaxed text-text-secondary">
-                  Our work is rooted in trust, co-production, and accessibility.
-                  We activate familiar community spaces to make engagement feel
-                  safe, inclusive, and relevant &mdash; designing projects with and
-                  for the people we serve, particularly young people from Black and
-                  minoritised backgrounds.
-                </p>
-              </Reveal>
+              {paragraphs.map((p, i) => (
+                <Reveal key={i}>
+                  <p className={`leading-relaxed text-text-secondary ${i === 0 ? "text-base md:text-lg" : ""}`}>
+                    {p}
+                  </p>
+                </Reveal>
+              ))}
               {/* Focus Areas */}
               <Reveal>
                 <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">

@@ -6,6 +6,8 @@ const footerLinks: { label: string; href: string; isPage?: boolean }[] = [
   { label: "Programmes", href: "#programs" },
   { label: "Events", href: "/events", isPage: true },
   { label: "Impact", href: "#impact" },
+  { label: "Team", href: "#team" },
+  { label: "Support", href: "#support" },
   { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];

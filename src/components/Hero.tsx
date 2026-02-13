@@ -4,8 +4,13 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Reveal, fadeUp } from "@/lib/motion";
+import type { HeroContent } from "@/lib/types";
 
-export default function Hero() {
+interface HeroProps {
+  content: HeroContent | null;
+}
+
+export default function Hero({ content }: HeroProps) {
   const particlesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,6 +32,20 @@ export default function Hero() {
       container.appendChild(p);
     }
   }, []);
+
+  // Fallback to hardcoded content if Supabase is not configured
+  const badge = content?.badge ?? "Community Interest Company \u2014 Croydon, UK";
+  const line1 = content?.heading_line1 ?? "I Can Because";
+  const line2 = content?.heading_line2 ?? "You Can.";
+  const line3 = content?.heading_line3 ?? "And Together, We Can.";
+  const subtitle = content?.subtitle ?? "Hold It Down CIC supports young people aged 12\u201325 and older adults through creative, wellbeing, and intergenerational programmes across South London.";
+  const subtitle2 = content?.subtitle2 ?? "We create safe, culturally rooted spaces where people can express themselves, build confidence, and connect across generations.";
+  const heroImage = content?.image ?? "/media/roots/roots-24.jpeg";
+  const heroImageAlt = content?.image_alt ?? "Hold It Down CIC members gathered around a table in matching blue hoodies";
+  const ctaPrimaryText = content?.cta_primary_text ?? "Explore Our Programmes";
+  const ctaPrimaryLink = content?.cta_primary_link ?? "#programs";
+  const ctaSecondaryText = content?.cta_secondary_text ?? "Support Our Work";
+  const ctaSecondaryLink = content?.cta_secondary_link ?? "#support";
 
   return (
     <section
@@ -54,7 +73,7 @@ export default function Hero() {
             <Reveal>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-bg-card px-3.5 py-1.5 text-[0.65rem] font-medium uppercase tracking-wider text-text-secondary sm:mb-10 sm:gap-2.5 sm:px-5 sm:py-2 sm:text-xs">
                 <span className="badge-dot h-1.5 w-1.5 rounded-full bg-accent sm:h-2 sm:w-2" />
-                Community Interest Company &mdash; Croydon, UK
+                {badge}
               </div>
             </Reveal>
 
@@ -72,42 +91,45 @@ export default function Hero() {
                   className="block overflow-hidden"
                   variants={fadeUp}
                 >
-                  I Can
+                  {line1}
                 </motion.span>
                 <motion.span
                   className="block overflow-hidden"
                   variants={fadeUp}
                 >
-                  <span className="text-gradient">You Can</span>
+                  <span className="text-gradient">{line2}</span>
                 </motion.span>
                 <motion.span
                   className="block overflow-hidden"
                   variants={fadeUp}
                 >
-                  We Can
+                  {line3}
                 </motion.span>
               </motion.h1>
             </div>
 
             <Reveal delay={0.3}>
-              <p className="mx-auto mb-8 max-w-[540px] text-[clamp(0.9rem,2.5vw,1.15rem)] leading-relaxed text-text-secondary sm:mx-0 sm:mb-12">
-                And together we can. A Croydon-based community interest company
-                creating culturally rooted spaces that build emotional wellbeing,
-                confidence and connection across families and communities.
+              <p className="mx-auto mb-4 max-w-[540px] text-[clamp(0.9rem,2.5vw,1.15rem)] leading-relaxed text-text-secondary sm:mx-0">
+                {subtitle}
+              </p>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <p className="mx-auto mb-8 max-w-[540px] text-[clamp(0.85rem,2.2vw,1.05rem)] leading-relaxed text-text-secondary sm:mx-0 sm:mb-12">
+                {subtitle2}
               </p>
             </Reveal>
 
             <Reveal delay={0.5}>
               <div className="flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:justify-start sm:gap-4">
                 <a
-                  href="#programs"
+                  href={ctaPrimaryLink}
                   onClick={(e) => {
                     e.preventDefault();
-                    document.querySelector("#programs")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    document.querySelector(ctaPrimaryLink)?.scrollIntoView({ behavior: "smooth", block: "start" });
                   }}
                   className="group inline-flex w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-accent-warm px-6 py-3.5 text-sm font-semibold text-white transition-all sm:w-auto sm:px-8 hover:-translate-y-0.5 hover:shadow-lg"
                 >
-                  <span>Our Programs</span>
+                  <span>{ctaPrimaryText}</span>
                   <svg
                     width="18"
                     height="18"
@@ -121,14 +143,14 @@ export default function Hero() {
                   </svg>
                 </a>
                 <a
-                  href="#contact"
+                  href={ctaSecondaryLink}
                   onClick={(e) => {
                     e.preventDefault();
-                    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    document.querySelector(ctaSecondaryLink)?.scrollIntoView({ behavior: "smooth", block: "start" });
                   }}
                   className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-border-hover px-6 py-3.5 text-sm font-semibold text-text-primary transition-all sm:w-auto sm:px-8 hover:-translate-y-0.5 hover:border-accent/30 hover:bg-accent/5"
                 >
-                  Get In Touch
+                  {ctaSecondaryText}
                 </a>
               </div>
             </Reveal>
@@ -140,8 +162,8 @@ export default function Hero() {
             <div className="relative mx-auto w-full max-w-[400px] sm:hidden">
               <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-border">
                 <Image
-                  src="/media/roots/roots-24.jpeg"
-                  alt="Hold It Down CIC members gathered around a table in matching blue hoodies"
+                  src={heroImage}
+                  alt={heroImageAlt}
                   fill
                   className="object-cover object-center"
                   sizes="100vw"
@@ -154,8 +176,8 @@ export default function Hero() {
             <div className="relative mx-auto hidden w-[240px] sm:block md:w-[320px] lg:w-[380px]">
               <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-border">
                 <Image
-                  src="/media/roots/roots-24.jpeg"
-                  alt="Hold It Down CIC members gathered around a table in matching blue hoodies"
+                  src={heroImage}
+                  alt={heroImageAlt}
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 768px) 240px, 380px"

@@ -1,8 +1,22 @@
 "use client";
 
 import { Reveal } from "@/lib/motion";
+import type { CTAContent } from "@/lib/types";
 
-export default function CTA() {
+interface CTAProps {
+  content: CTAContent | null;
+}
+
+export default function CTA({ content }: CTAProps) {
+  const heading = content?.heading ?? "Ready to be part of the movement?";
+  const description = content?.description ?? "Whether you\u2019re a young person looking for a safe space, a family seeking community, or someone who wants to support grassroots change \u2014 we want to hear from you.";
+  const buttons = content?.buttons ?? [
+    { text: "Join a Programme", link: "#programs" },
+    { text: "Volunteer With Us", link: "#contact" },
+    { text: "Partner With Us", link: "#contact" },
+    { text: "Support Our Work", link: "#support", primary: true },
+  ];
+
   return (
     <section className="pb-12 sm:pb-16 md:pb-20">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
@@ -16,36 +30,43 @@ export default function CTA() {
 
             <div className="relative z-10">
               <h2 className="mb-4 font-[family-name:var(--font-heading)] text-[clamp(1.4rem,4vw,2.8rem)] font-bold tracking-tight sm:mb-5">
-                Ready to be part of the movement?
+                {heading}
               </h2>
               <p className="mx-auto mb-8 max-w-[600px] text-base leading-relaxed text-text-secondary sm:mb-10 md:text-lg">
-                Whether you&apos;re a young person looking for a safe space, a
-                family seeking community, or someone who wants to support
-                grassroots change &mdash; we want to hear from you.
+                {description}
               </p>
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document
-                    .querySelector("#contact")
-                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }}
-                className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-accent-warm px-7 py-3.5 text-sm font-semibold text-white transition-all sm:px-10 sm:py-4 sm:text-base hover:-translate-y-0.5 hover:shadow-lg"
-              >
-                <span>Join Us</span>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                >
-                  <path d="M7 17L17 7M17 7H7M17 7V17" />
-                </svg>
-              </a>
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                {buttons.map((btn) => (
+                  <a
+                    key={btn.text}
+                    href={btn.link}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.querySelector(btn.link)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
+                    className={
+                      btn.primary
+                        ? "group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-accent to-accent-warm px-7 py-3.5 text-sm font-semibold text-white transition-all sm:px-10 sm:py-4 sm:text-base hover:-translate-y-0.5 hover:shadow-lg"
+                        : "group inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/20 hover:shadow-lg"
+                    }
+                  >
+                    <span>{btn.text}</span>
+                    {btn.primary && (
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      >
+                        <path d="M7 17L17 7M17 7H7M17 7V17" />
+                      </svg>
+                    )}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </Reveal>

@@ -4,12 +4,17 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal, fadeUp, staggerContainer } from "@/lib/motion";
-import { events } from "@/lib/events-data";
+import type { EventData } from "@/lib/types";
 
 // Show only the first 2 events as a preview
-const previewEvents = events.slice(0, 2);
+interface EventsProps {
+  events: EventData[];
+}
 
-export default function Events() {
+export default function Events({ events }: EventsProps) {
+  const previewEvents = events.slice(0, 2);
+  const totalEvents = events.length;
+
   return (
     <section id="events" className="py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6">
@@ -43,20 +48,19 @@ export default function Events() {
           variants={staggerContainer}
         >
           {previewEvents.map((event, i) => (
-            <motion.div key={event.title} variants={fadeUp}>
+            <motion.div key={event.id || event.slug} variants={fadeUp}>
               <div className="group overflow-hidden rounded-2xl border border-border bg-bg-card">
                 <div className="grid md:grid-cols-2">
                   {/* Image */}
                   <div className={`relative aspect-[16/10] md:aspect-auto md:min-h-[400px] ${i % 2 === 1 ? "md:order-2" : ""}`}>
                     <Image
                       src={event.image}
-                      alt={event.imageAlt}
+                      alt={event.image_alt}
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-card/60 via-transparent to-transparent md:bg-none" />
-                    {/* Badge */}
                     <div className="absolute top-4 left-4 rounded-full border border-accent/20 bg-bg/80 px-4 py-1.5 text-xs font-semibold text-accent backdrop-blur-sm">
                       {event.badge}
                     </div>
@@ -64,7 +68,6 @@ export default function Events() {
 
                   {/* Content */}
                   <div className="p-6 sm:p-8 md:p-10">
-                    {/* Date & Location */}
                     <div className="mb-4 flex flex-wrap items-center gap-3 text-sm text-text-secondary">
                       <span className="flex items-center gap-1.5">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -88,7 +91,7 @@ export default function Events() {
                       {event.title}
                     </h3>
                     <p className="mb-5 leading-relaxed text-text-secondary">
-                      {event.desc}
+                      {event.description}
                     </p>
 
                     {/* Highlights */}
@@ -155,7 +158,7 @@ export default function Events() {
               </svg>
             </Link>
             <p className="mt-3 text-sm text-text-tertiary">
-              See all {events.length} events and photo galleries
+              See all {totalEvents} events and photo galleries
             </p>
           </div>
         </Reveal>

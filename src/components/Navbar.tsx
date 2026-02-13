@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "@/lib/theme";
 
 const links: { label: string; href: string; isPage?: boolean }[] = [
@@ -104,11 +105,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-400 ${
-        scrolled
-          ? "bg-bg/85 py-3 border-b border-border backdrop-blur-xl"
-          : "py-5"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-400 ${scrolled
+        ? "bg-bg/85 py-3 border-b border-border backdrop-blur-xl"
+        : "py-5"
+        }`}
     >
       <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6">
         {/* Logo */}
@@ -118,10 +118,16 @@ export default function Navbar() {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="flex items-center gap-2 font-[family-name:var(--font-heading)] text-lg font-bold tracking-wide"
+          className="flex items-center gap-2"
         >
-          <span className="text-text-primary">HOLD IT</span>
-          <span className="text-accent">DOWN</span>
+          <Image
+            src="/logos/holdlogo.png"
+            alt="HOLD IT DOWN"
+            width={160}
+            height={44}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </a>
 
         {/* Desktop Links + Theme Toggle */}
@@ -160,19 +166,16 @@ export default function Navbar() {
             aria-label="Toggle navigation"
           >
             <span
-              className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${
-                open ? "translate-y-[7px] rotate-45" : ""
-              }`}
+              className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${open ? "translate-y-[7px] rotate-45" : ""
+                }`}
             />
             <span
-              className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${
-                open ? "opacity-0" : ""
-              }`}
+              className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${open ? "opacity-0" : ""
+                }`}
             />
             <span
-              className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${
-                open ? "-translate-y-[7px] -rotate-45" : ""
-              }`}
+              className={`block h-[2px] w-6 rounded-full bg-text-primary transition-all duration-300 ${open ? "-translate-y-[7px] -rotate-45" : ""
+                }`}
             />
           </button>
         </div>

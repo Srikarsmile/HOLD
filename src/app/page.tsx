@@ -8,13 +8,21 @@ import Mission from "@/components/Mission";
 import Programs from "@/components/Programs";
 import Events from "@/components/Events";
 import Impact from "@/components/Impact";
+import Team from "@/components/Team";
+import Support from "@/components/Support";
 import CTA from "@/components/CTA";
 import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
+import { getAllContent } from "@/lib/content";
 
-export default function Home() {
+// Revalidate every 60 seconds (ISR)
+export const revalidate = 60;
+
+export default async function Home() {
+  const content = await getAllContent();
+
   return (
     <>
       <Preloader />
@@ -22,16 +30,22 @@ export default function Home() {
       <CookieConsent />
       <Navbar />
       <main>
-        <Hero />
-        <Stats />
-        <About />
+        <Hero content={content.hero} />
+        <Stats stats={content.stats} />
+        <About content={content.about} />
         <Mission />
-        <Programs />
-        <Events />
+        <Programs
+          programs={content.programs}
+          initiatives={content.initiatives}
+          meta={content.programsMeta}
+        />
+        <Events events={content.events} />
         <Impact />
-        <Gallery />
-        <CTA />
-        <Contact />
+        <Team members={content.teamMembers} />
+        <Support content={content.support} />
+        <Gallery images={content.galleryImages} meta={content.galleryMeta} />
+        <CTA content={content.cta} />
+        <Contact content={content.contact} />
       </main>
       <Footer />
     </>
